@@ -1,5 +1,4 @@
-
-export class LATLONG {
+export class MYLOC {
   address: string;
   lat: string;
   long: string;
