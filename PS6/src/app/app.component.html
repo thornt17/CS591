@@ -1,0 +1,22 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{ title }}!
+  </h1>
+</div>
+
+<div>
+
+  <ul>
+
+    <li *ngFor="let loc of locs">
+      <label (click)="displayLocDetail(loc)">{{loc.address}}</label>
+    </li>
+
+  </ul>
+
+</div>
+
+<app-locs-detail [selectedLoc]="selectedLoc"></app-locs-detail>
+
+<app-locs></app-locs>

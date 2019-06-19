@@ -1,0 +1,19 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    {{ title }}
+  </h1>
+</div>
+
+<div>
+
+
+  <ul>
+    <li *ngFor="let latlong of latlongs">
+      <label (click)="picklatlong(latlong)">{{latlong.address}} ({{latlong.lat}}) ({{latlong.long}})</label>
+    </li>
+  </ul>
+
+</div>
+
+
