@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
 import {MYLOC} from '../MYLOC';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
@@ -7,17 +7,19 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class LocService {
-  locsEndpoint = 'http://localhost:3000/api';
+  locsEndpoint = 'http://localhost:4200';
+
 //  contacts = CONTACTS;
-  getLocs(): Observable<MYLOC[]> {
+  getLoc(): Observable<MYLOC[]> {
     return this.httpClient.get<MYLOC[]>(this.locsEndpoint);
   }
 
   addLoc(newLoc: MYLOC): any {
-
+    console.log('called service');
     return this.httpClient.post<any>(this.locsEndpoint, newLoc);
 
   }
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+  }
 }

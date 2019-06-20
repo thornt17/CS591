@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 import {MYLOC} from '../locs/MYLOC';
 import { LocServiceAsyncService} from './services/locs-service-async.service';
 
@@ -7,7 +7,12 @@ import { LocServiceAsyncService} from './services/locs-service-async.service';
   templateUrl: './locs.component.html',
   styleUrls: ['./locs.component.css']
 })
+
+
 export class LocsComponent implements OnInit {
+
+  @Input() selectedLoc;
+
 
   // contacts: CONTACT[] = CONTACTS;
   my: any = {
@@ -23,11 +28,13 @@ export class LocsComponent implements OnInit {
       long:          'long',
     };
 //    this.contacts.push(newContact);
-    this.locsService.addLoc(newLoc)
-      .subscribe();
+    this.LocService.addLoc(newLoc)
+      .subscribe(
+        data => this.selectedLoc = data);
+
   }
 
-  constructor(private locsService: LocServiceAsyncService) { }
+  constructor(private LocService: LocServiceAsyncService) { }
 
   ngOnInit() {
   }

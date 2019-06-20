@@ -7,6 +7,7 @@ const apiKey = 'AIzaSyAEfFIdnOckrDmi7luX5z_DJobcSFi1-TY';
 
 router.post('/', function (req, res, next) {
     let address = req.body.address;
+    //let address = req.address;
     let url = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`
     console.log(url)
     request(url)

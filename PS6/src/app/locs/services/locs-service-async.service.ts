@@ -11,15 +11,17 @@ export class LocServiceAsyncService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-  locsEndpoint = 'http://localhost:3000/api/db';
+  locsEndpoint = 'http://localhost:3000/ps4';
 
-  getLocs(): Observable<MYLOC[]> {
+  getLoc(): Observable<MYLOC[]> {
     return this.httpClient.get<MYLOC[]>(this.locsEndpoint);
   }
 
   addLoc(newLoc: MYLOC): Observable<any> {
     // We don't need the '_id' property on the back end (probly should fix it there)
-    //delete newLoc.address;
+    // delete newLoc.address;
+    console.log('called service');
+
     return this.httpClient.post(this.locsEndpoint, newLoc, this.httpOptions);
 
   }

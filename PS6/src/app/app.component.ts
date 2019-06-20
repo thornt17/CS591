@@ -14,8 +14,8 @@ export class AppComponent {
   private selectedLoc: MYLOC = null;
   locs = []
 
-  getLocs(): void {
-    this.locService.getLocs()
+  getLoc(): void {
+    this.LocService.getLoc()
       .subscribe(locs => {
         this.locs = locs;
         console.log(`Locs: ${this.locs}`)
@@ -27,10 +27,10 @@ export class AppComponent {
     this.selectedLoc = loc;
   }
 
-  constructor(private locService: LocServiceAsyncService) {
+  constructor(private LocService: LocServiceAsyncService) {
 
   }
   ngOnInit() {
-    this.getLocs();
+    this.getLoc();
   }
 }
